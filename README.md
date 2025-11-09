@@ -1,8 +1,8 @@
- Building the future of intelligent Cloud Storage
+# Building the future of intelligent Cloud Storage
 
 **Real-time streaming • AI-based tiering • Cloud cost reduction dashboard**
 
-Modern cloud systems generate millions of objects, each with different access patterns and storage needs.  
+Modern cloud systems generate millions of objects, each with different access patterns and storage needs.
 Storing everything in high-performance cloud storage is extremely expensive, so this system automatically classifies objects as:
 
 | Tier | Cloud | Purpose |
@@ -11,9 +11,9 @@ Storing everything in high-performance cloud storage is extremely expensive, so 
 | **WARM** | Azure Standard | Moderately accessed storage |
 | **COLD** | Glacier Deep Archive | Inactive, cheapest tier |
 
- The dashboard shows live predictions of where each object belongs, helping reduce cloud storage bills.
+The dashboard shows live predictions of where each object belongs, helping reduce cloud storage bills.
 
-
+---
 
 ## Features
 | Feature | Description |
@@ -26,7 +26,7 @@ Storing everything in high-performance cloud storage is extremely expensive, so 
 | ✅ SQLite storage for event history |
 | ✅ FastAPI backend with JSON API |
 
-
+---
 
 ## Tech Stack
 - **Python**
@@ -52,20 +52,22 @@ The ML classifier is trained on historical metadata:
 
 Using these, the model predicts which tier saves money while keeping performance acceptable.
 
+-- In real cloud systems, the HOT storage tier is intentionally small. HOT tiers (AWS High-Performance, NVMe-backed storage) are the fastest. They are also the most expensive. And hence, our super realistic ML model makes it a reality in the simulation.
+
 ---
 
-##  Why HOT = 1, WARM = Hundreds, COLD = 0
+## Why HOT = 1, WARM = Hundreds, COLD = 0
 This is realistic behavior:
 
-- HOT is rare — only highly active objects qualify
-- Most objects are moderately active → WARM
-- No object has been inactive long enough to become COLD
+- **HOT is rare** — only highly active objects qualify
+- **Most objects are moderately active** → WARM
+- **No object has been inactive long enough** to become COLD
 
 ✅ This means the ML model is behaving realistically — not everything becomes HOT/COLD.
 
 ---
 
-## ✅ Why Total Sometimes Stays at 500
+## Why Total Sometimes Stays at 500
 The system counts unique objects, not streaming events.
 
 - The generator often reuses the same object IDs
@@ -76,7 +78,7 @@ The system counts unique objects, not streaming events.
 
 ---
 
-##  Folder Structure
+## Folder Structure
 
 netapp-hackathon/
 │
@@ -112,7 +114,11 @@ streamlit run app.py (dashboard opens at http://localhost:8501)
 ------------
 
 API Root:http://127.0.0.1:8000
+
+
 Objects Data:http://127.0.0.1:8000/objects
+
+
 Live Logs:http://127.0.0.1:8000/logs
 ------------
 
@@ -122,7 +128,6 @@ If you get an error
 Install Uvicorn:
 
 pip install uvicorn fastapi
-
 
 Then run again:
 
