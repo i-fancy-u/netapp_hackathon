@@ -1,0 +1,6 @@
+{
+  "publish_interval_seconds": 3,
+  "max_random_reads_per_event": 10,
+  "mqtt_broker": "broker.hivemq.com",
+  "mqtt_topic": "netapp/streaming/events"
+}
