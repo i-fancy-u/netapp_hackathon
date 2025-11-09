@@ -16,8 +16,8 @@ The dashboard shows live predictions of where each object belongs, helping reduc
 ---
 
 ## Features
-| Feature | Description |
-|---------|-------------|
+| Feature 
+|---------|
 | ✅ Real-time streaming of object events |
 | ✅ ML model predicts optimal tier (HOT / WARM / COLD) |
 | ✅ Auto-updating Streamlit dashboard |
